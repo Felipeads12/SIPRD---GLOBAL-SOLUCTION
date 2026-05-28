@@ -1,9 +1,10 @@
 package br.com.protegeTerra.Model;
 
 public class Desastre {
-    String incendio;
-    String deslizamento;
-    String enchente;
-    String terremoto;
+    private String tipo;
+    private String local;
+    private String descricao;
+    private boolean riscoAlto;
+
 
 }

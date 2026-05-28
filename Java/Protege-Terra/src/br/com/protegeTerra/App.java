@@ -29,6 +29,9 @@ public class App {
                     System.out.println("Digite seu endereço:");
                     String endereco = sc.nextLine();
 
+                    System.out.println("Digite seu telefone");
+                    String telefone = sc.nextLine();
+
                     System.out.println(" ===== Opções de Desastres ===== ");
                     System.out.println(" 1 - Deslizamento \n 2 - Enchente \n 3 - Incêndio \n 4 - Terremoto");
                     System.out.println("Digite a opção desejada (1 - 4)");
