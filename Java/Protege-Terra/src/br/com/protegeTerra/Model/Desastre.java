@@ -1,61 +1,45 @@
 package br.com.protegeTerra.Model;
 
+import java.time.LocalDate;
+
 public class Desastre {
 
+    private int id;
     private String tipo;
     private String endereco;
     private String descricao;
     private String gravidade;
+    private String status;
+    private int pessoasAfetadas;
+    private LocalDate data;
 
-    // Construtor
-    public Desastre(String tipo, String endereco, String descricao, String gravidade) {
+    public Desastre(int id, String tipo, String endereco,
+                    String descricao, String gravidade,
+                    String status, int pessoasAfetadas,
+                    LocalDate data) {
+
+        this.id = id;
         this.tipo = tipo;
         this.endereco = endereco;
         this.descricao = descricao;
         this.gravidade = gravidade;
+        this.status = status;
+        this.pessoasAfetadas = pessoasAfetadas;
+        this.data = data;
     }
 
-    // Getters
-    public String getTipo() {
-        return tipo;
+    public Desastre(String tipo, String enderecoDesastre, String descricao, String gravidade) {
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getGravidade() {
-        return gravidade;
-    }
-
-    // Setters
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setGravidade(String gravidade) {
-        this.gravidade = gravidade;
-    }
-
-    // Mostrar informações
     @Override
     public String toString() {
+
         return "\n===== DESASTRE REPORTADO =====" +
+                "\nID: " + id +
                 "\nTipo: " + tipo +
                 "\nEndereço: " + endereco +
                 "\nDescrição: " + descricao +
-                "\nGravidade: " + gravidade;
+                "\nGravidade: " + gravidade +
+                "\nData: " + data;
     }
 }

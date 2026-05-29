@@ -1,5 +1,6 @@
 package br.com.protegeTerra;
 import br.com.protegeTerra.Model.Desastre;
+import java.time.LocalDate;
 
 import java.util.Scanner;
 
@@ -28,9 +29,39 @@ public class App {
 
                     System.out.println("Digite uma descrição:");
                     String descricao = sc.nextLine();
+                    System.out.println("===== NÍVEL DE GRAVIDADE =====");
+                    System.out.println("1 - Leve");
+                    System.out.println("2 - Moderado");
+                    System.out.println("3 - Grave");
+                    System.out.println("4 - Crítico");
 
-                    System.out.println("Digite a gravidade:");
-                    String gravidade = sc.nextLine();
+                    int opcaoGravidade = 0;
+                    String gravidade = "";
+                    switch (opcaoGravidade) {
+
+                        case 1:
+                            gravidade = "Leve";
+                            break;
+
+                        case 2:
+                            gravidade = "Moderado";
+                            break;
+
+                        case 3:
+                            gravidade = "Grave";
+                            break;
+
+                        case 4:
+                            gravidade = "Crítico";
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida!");
+                            gravidade = "Não informado";
+                            break;
+                    }
+                    System.out.println("Digite a gravidade (1 - 4):");
+                    int gravidade_opcao = sc.nextInt();
 
                     System.out.println("===== TIPOS DE DESASTRE =====");
                     System.out.println("1 - Deslizamento");
