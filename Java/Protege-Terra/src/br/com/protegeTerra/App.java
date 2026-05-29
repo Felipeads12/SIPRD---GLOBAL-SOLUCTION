@@ -1,4 +1,6 @@
 package br.com.protegeTerra;
+import br.com.protegeTerra.Model.Desastre;
+
 import java.util.Scanner;
 
 public class App {
@@ -20,36 +22,58 @@ public class App {
             sc.nextLine();
             switch (opcao) {
                 case 1:
-                    System.out.println("Digite seu nome:");
-                    String nome = sc.nextLine();
 
-                    System.out.println("Digite seu cpf:");
-                    String cpf = sc.nextLine();
+                    System.out.println("Digite o endereço do desastre:");
+                    String enderecoDesastre = sc.nextLine();
 
-                    System.out.println("Digite seu endereço:");
-                    String endereco = sc.nextLine();
+                    System.out.println("Digite uma descrição:");
+                    String descricao = sc.nextLine();
 
-                    System.out.println("Digite seu telefone");
-                    String telefone = sc.nextLine();
+                    System.out.println("Digite a gravidade:");
+                    String gravidade = sc.nextLine();
 
-                    System.out.println(" ===== Opções de Desastres ===== ");
-                    System.out.println(" 1 - Deslizamento \n 2 - Enchente \n 3 - Incêndio \n 4 - Terremoto");
-                    System.out.println("Digite a opção desejada (1 - 4)");
-                    int opcao_desastre = sc.nextInt();
-                    switch (opcao_desastre) {
+                    System.out.println("===== TIPOS DE DESASTRE =====");
+                    System.out.println("1 - Deslizamento");
+                    System.out.println("2 - Enchente");
+                    System.out.println("3 - Incêndio");
+                    System.out.println("4 - Terremoto");
+
+                    int opcaoDesastre = sc.nextInt();
+                    sc.nextLine();
+
+                    String tipo = "";
+
+                    switch (opcaoDesastre) {
                         case 1:
-                            System.out.println("Voce escolheu Deslizamento!");
+                            tipo = "Deslizamento";
                             break;
+
                         case 2:
-                            System.out.println("Voce escolheu Enchente!");
+                            tipo = "Enchente";
                             break;
+
                         case 3:
-                            System.out.println("Voce escolheu Incêndio!");
+                            tipo = "Incêndio";
                             break;
+
                         case 4:
-                            System.out.println("Voce escolheu terremoto!");
+                            tipo = "Terremoto";
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida!");
                             break;
                     }
+
+                    Desastre desastre = new Desastre(
+                            tipo,
+                            enderecoDesastre,
+                            descricao,
+                            gravidade
+                    );
+
+                    System.out.println(desastre);
+
                     break;
 
                 case 2:
