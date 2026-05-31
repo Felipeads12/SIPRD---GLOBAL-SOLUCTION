@@ -12,6 +12,13 @@ public class Cliente {
         this.cpf = cpf;
         this.telefone = telefone;
     }
+    public void exibirDados(){
+
+        System.out.println("Nome: " + nome);
+        System.out.println("CPF: " + cpf);
+        System.out.println("Endereço: " + endereco);
+        System.out.println("Telefone: " + telefone);
+    }
 
     public String getNome() {
         return nome;
