@@ -1,4 +1,4 @@
-package br.com.protegeTerra.service;
+package br.com.protegeTerra.Model;
 
 public class DicaSeguranca {
     private String dicaDeslizamento;

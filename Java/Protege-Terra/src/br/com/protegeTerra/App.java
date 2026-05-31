@@ -1,5 +1,5 @@
 package br.com.protegeTerra;
-import br.com.protegeTerra.Model.Desastre;
+import br.com.protegeTerra.Model.*;
 import java.time.LocalDate;
 
 import java.util.Scanner;
