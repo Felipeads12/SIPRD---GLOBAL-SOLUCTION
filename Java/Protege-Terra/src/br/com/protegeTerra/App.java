@@ -6,7 +6,6 @@ import br.com.protegeTerra.Model.Relatorio;
 import br.com.protegeTerra.Service.ClienteService;
 import br.com.protegeTerra.Service.DesastreService;
 import br.com.protegeTerra.Service.DicasService;
-import br.com.protegeTerra.Service.DicasService;
 import br.com.protegeTerra.Service.EmergenciaService;
 
 import java.util.Scanner;
