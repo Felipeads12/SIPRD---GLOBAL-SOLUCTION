@@ -1,6 +1,7 @@
 package br.com.protegeTerra.Model;
 
 public class Cliente {
+
     private String nome;
     private String endereco;
     private String cpf;
@@ -19,44 +20,20 @@ public class Cliente {
         this.id = id;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
+    public Cliente(String nome, String endereco, String cpf, String telefone, String senha) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cpf = cpf;
+        this.telefone = telefone;
         this.senha = senha;
     }
 
-    public String getEmail() {
-        return email;
+    public String getNome() {
+        return nome;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEndereco() {
@@ -67,12 +44,43 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public String getNome() {
-        return nome;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
-

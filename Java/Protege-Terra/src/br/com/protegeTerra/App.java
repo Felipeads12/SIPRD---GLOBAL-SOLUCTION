@@ -42,25 +42,43 @@ public class App {
 
                     if (clienteLogado == null) {
 
-                        System.out.println("\n⚠ Você precisa estar cadastrado para reportar um desastre.");
+                            System.out.println("\n⚠ Você precisa estar cadastrado para reportar um desastre.");
 
-                        System.out.println("1 - Fazer Cadastro");
-                        System.out.println("2 - Voltar");
+                            System.out.println("1 - Fazer Cadastro");
+                            System.out.println("2 - Fazer Login");
+                            System.out.println("3 - Voltar");
 
-                        int opcaoCadastro = sc.nextInt();
-                        sc.nextLine();
+                            int opcaoCadastro = sc.nextInt();
+                            sc.nextLine();
 
-                        if (opcaoCadastro == 1) {
+                            if (opcaoCadastro == 1) {
 
-                            clienteLogado = clienteService.cadastrarCliente(sc);
+                                clienteLogado = clienteService.cadastrarCliente(sc);
 
-                            System.out.println("\nCadastro realizado com sucesso!");
-                            System.out.println("Bem-vindo, " + clienteLogado.getNome());
+                                System.out.println("\nCadastro realizado com sucesso!");
+                                System.out.println("Bem-vindo, " + clienteLogado.getNome());
 
-                        } else {
-                            break;
+                            } else if (opcaoCadastro == 2) {
+
+                                System.out.print("CPF: ");
+                                String cpf = sc.nextLine();
+
+                                System.out.print("Senha: ");
+                                String senha = sc.nextLine();
+
+                                clienteLogado = clienteService.login(cpf, senha);
+
+                                if (clienteLogado != null) {
+                                    System.out.println("Login realizado com sucesso!");
+                                } else {
+                                    System.out.println("CPF ou senha inválidos.");
+                                    break;
+                                }
+
+                            } else {
+                                break;
+                            }
                         }
-                    }
 
                     Desastre desastre = desastreService.cadastrarDesastre(sc);
 
