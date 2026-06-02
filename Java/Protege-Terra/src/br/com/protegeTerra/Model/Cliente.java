@@ -1,23 +1,31 @@
 package br.com.protegeTerra.Model;
 
 public class Cliente {
-    String nome;
-    String endereco;
-    String cpf;
-    String telefone;
 
-    public Cliente(String nome, String endereco, String cpf, String telefone) {
+    private String nome;
+    private String endereco;
+    private String cpf;
+    private String telefone;
+    private String email;
+    private String senha;
+    private int id;
+
+    public Cliente(String nome, String endereco, String cpf, String telefone, String email, String senha, int id) {
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
         this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.id = id;
     }
-    public void exibirDados(){
 
-        System.out.println("Nome: " + nome);
-        System.out.println("CPF: " + cpf);
-        System.out.println("Endereço: " + endereco);
-        System.out.println("Telefone: " + telefone);
+    public Cliente(String nome, String endereco, String cpf, String telefone, String senha) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.senha = senha;
     }
 
     public String getNome() {
@@ -50,5 +58,29 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

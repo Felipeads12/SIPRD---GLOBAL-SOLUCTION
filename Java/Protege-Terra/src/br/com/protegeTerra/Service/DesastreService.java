@@ -7,6 +7,8 @@ public class DesastreService {
 
     public Desastre cadastrarDesastre(Scanner sc){
 
+        System.out.println(" ========== Registro Desastre ==========");
+
         System.out.println("Digite o endereço:");
         String endereco = sc.nextLine();
 

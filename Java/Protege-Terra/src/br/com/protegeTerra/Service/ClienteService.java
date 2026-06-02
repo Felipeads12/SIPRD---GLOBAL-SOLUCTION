@@ -1,24 +1,59 @@
 package br.com.protegeTerra.Service;
 
 import br.com.protegeTerra.Model.Cliente;
+import br.com.protegeTerra.Repository.ClienteRepository;
+
 import java.util.Scanner;
 
 public class ClienteService {
 
-    public Cliente cadastrarCliente(Scanner sc){
+    private ClienteRepository clienteRepository;
 
-        System.out.println("Nome:");
+    public ClienteService() {
+        this.clienteRepository = new ClienteRepository();
+    }
+
+    public Cliente login(String cpf, String senha) {
+
+        for (Cliente cliente : clienteRepository.listarClientes()) {
+
+            if (cliente.getCpf().equals(cpf)
+                    && cliente.getSenha().equals(senha)) {
+
+                return cliente;
+            }
+        }
+
+        return null;
+    }
+
+    public Cliente cadastrarCliente(Scanner sc) {
+
+        System.out.print("Nome: ");
         String nome = sc.nextLine();
 
-        System.out.println("CPF:");
-        String cpf = sc.nextLine();
-
-        System.out.println("Endereço:");
+        System.out.print("Endereço: ");
         String endereco = sc.nextLine();
 
-        System.out.println("Telefone:");
+        System.out.print("CPF: ");
+        String cpf = sc.nextLine();
+
+        System.out.print("Telefone: ");
         String telefone = sc.nextLine();
 
-        return new Cliente(nome, endereco, cpf, telefone);
+        System.out.print("Senha: ");
+        String senha = sc.nextLine();
+
+        Cliente cliente = new Cliente(
+                nome,
+                endereco,
+                cpf,
+                telefone,
+                senha
+        );
+
+        clienteRepository.salvar(cliente);
+
+        return cliente;
     }
 }
