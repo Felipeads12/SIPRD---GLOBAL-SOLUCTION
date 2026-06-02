@@ -1,39 +1,54 @@
 package br.com.protegeTerra.Model;
 
 public class Cliente {
-    String nome;
-    String endereco;
-    String cpf;
-    String telefone;
+    private String nome;
+    private String endereco;
+    private String cpf;
+    private String telefone;
+    private String email;
+    private String senha;
+    private int id;
 
-    public Cliente(String nome, String endereco, String cpf, String telefone) {
+    public Cliente(String nome, String endereco, String cpf, String telefone, String email, String senha, int id) {
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
         this.telefone = telefone;
-    }
-    public void exibirDados(){
-
-        System.out.println("Nome: " + nome);
-        System.out.println("CPF: " + cpf);
-        System.out.println("Endereço: " + endereco);
-        System.out.println("Telefone: " + telefone);
+        this.email = email;
+        this.senha = senha;
+        this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public int getId() {
+        return id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getCpf() {
@@ -44,11 +59,20 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
+
