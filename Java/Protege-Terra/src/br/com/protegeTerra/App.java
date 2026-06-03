@@ -7,6 +7,10 @@ import br.com.protegeTerra.Service.ClienteService;
 import br.com.protegeTerra.Service.DesastreService;
 import br.com.protegeTerra.Service.DicasService;
 import br.com.protegeTerra.Service.EmergenciaService;
+import br.com.protegeTerra.Service.ClimaService;
+import br.com.protegeTerra.Service.NasaService;
+import br.com.protegeTerra.Service.InpeService;
+import br.com.protegeTerra.Service.MapsService;
 
 import java.util.Scanner;
 
@@ -19,13 +23,18 @@ public class App {
         ClienteService clienteService = new ClienteService();
         DesastreService desastreService = new DesastreService();
 
+        ClimaService climaService = new ClimaService();
+        NasaService nasaService = new NasaService();
+        InpeService inpeService = new InpeService();
+        MapsService mapsService = new MapsService();
+
         Cliente clienteLogado = null;
 
         int opcao = 0;
 
         while (opcao != 5) {
 
-            System.out.println("\n================== PROTEGE TERRA ==================");
+            System.out.println("\n================== SIPRD ==================");
             System.out.println("1 - Reportar Desastre");
             System.out.println("2 - Antecipar Desastres");
             System.out.println("3 - Dicas");
@@ -88,9 +97,15 @@ public class App {
 
                 case 2:
 
-                    System.out.println("\nSistema de antecipação de desastres em desenvolvimento.");
-                    break;
+                    System.out.println("\n=== ANTECIPAÇÃO DE DESASTRES ===");
 
+                    climaService.verificarClima();
+
+                    nasaService.consultarEventos();
+
+                    inpeService.verificarQueimadas();
+
+                    break;
                 case 3:
 
                     DicasService.mostrarDicas();
@@ -103,7 +118,7 @@ public class App {
 
                 case 5:
 
-                    System.out.println("\nObrigado por utilizar o Protege Terra!");
+                    System.out.println("\nObrigado por utilizar o Siprd!");
                     break;
 
                 default:

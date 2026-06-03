@@ -29,19 +29,19 @@ public class ClienteService {
 
     public Cliente cadastrarCliente(Scanner sc) {
 
-        System.out.print("Nome: ");
+        System.out.print("Digite seu Nome: ");
         String nome = sc.nextLine();
 
-        System.out.print("Endereço: ");
+        System.out.print("Digite seu Endereço: ");
         String endereco = sc.nextLine();
 
-        System.out.print("CPF: ");
+        System.out.print("Digite seu CPF: ");
         String cpf = sc.nextLine();
 
-        System.out.print("Telefone: ");
+        System.out.print("Digite seu Telefone: ");
         String telefone = sc.nextLine();
 
-        System.out.print("Senha: ");
+        System.out.print("Digite sua Senha: ");
         String senha = sc.nextLine();
 
         Cliente cliente = new Cliente(
