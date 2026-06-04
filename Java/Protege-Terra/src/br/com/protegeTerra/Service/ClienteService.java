@@ -29,19 +29,26 @@ public class ClienteService {
 
     public Cliente cadastrarCliente(Scanner sc) {
 
-        System.out.print("Digite seu Nome: ");
+        System.out.print("Nome: ");
         String nome = sc.nextLine();
 
-        System.out.print("Digite seu Endereço: ");
+        System.out.print("Endereço: ");
         String endereco = sc.nextLine();
 
-        System.out.print("Digite seu CPF: ");
+        System.out.print("CPF: ");
         String cpf = sc.nextLine();
 
-        System.out.print("Digite seu Telefone: ");
+        if (clienteRepository.buscarPorCpf(cpf) != null) {
+
+            System.out.println("CPF já cadastrado!");
+
+            return null;
+        }
+
+        System.out.print("Telefone: ");
         String telefone = sc.nextLine();
 
-        System.out.print("Digite sua Senha: ");
+        System.out.print("Senha: ");
         String senha = sc.nextLine();
 
         Cliente cliente = new Cliente(
@@ -56,4 +63,4 @@ public class ClienteService {
 
         return cliente;
     }
-}
+    }

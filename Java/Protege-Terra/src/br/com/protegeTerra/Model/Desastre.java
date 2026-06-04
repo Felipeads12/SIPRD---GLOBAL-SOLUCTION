@@ -28,7 +28,13 @@ public class Desastre {
         this.data = data;
     }
 
-    public Desastre(String tipo, String enderecoDesastre, String descricao, String gravidade) {
+    public Desastre(String tipo, String endereco, String descricao, String gravidade) {
+
+        this.tipo = tipo;
+        this.endereco = endereco;
+        this.descricao = descricao;
+        this.gravidade = gravidade;
+        this.data = LocalDate.now();
     }
 
     @Override
@@ -41,5 +47,69 @@ public class Desastre {
                 "\nDescrição: " + descricao +
                 "\nGravidade: " + gravidade +
                 "\nData: " + data;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getGravidade() {
+        return gravidade;
+    }
+
+    public void setGravidade(String gravidade) {
+        this.gravidade = gravidade;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getPessoasAfetadas() {
+        return pessoasAfetadas;
+    }
+
+    public void setPessoasAfetadas(int pessoasAfetadas) {
+        this.pessoasAfetadas = pessoasAfetadas;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 }
