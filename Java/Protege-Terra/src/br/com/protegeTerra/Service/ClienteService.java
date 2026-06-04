@@ -38,6 +38,13 @@ public class ClienteService {
         System.out.print("CPF: ");
         String cpf = sc.nextLine();
 
+        if (clienteRepository.buscarPorCpf(cpf) != null) {
+
+            System.out.println("CPF já cadastrado!");
+
+            return null;
+        }
+
         System.out.print("Telefone: ");
         String telefone = sc.nextLine();
 
@@ -56,4 +63,4 @@ public class ClienteService {
 
         return cliente;
     }
-}
+    }

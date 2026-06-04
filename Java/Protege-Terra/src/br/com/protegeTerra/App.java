@@ -7,6 +7,10 @@ import br.com.protegeTerra.Service.ClienteService;
 import br.com.protegeTerra.Service.DesastreService;
 import br.com.protegeTerra.Service.DicasService;
 import br.com.protegeTerra.Service.EmergenciaService;
+import br.com.protegeTerra.Service.ClimaService;
+import br.com.protegeTerra.Service.NasaService;
+import br.com.protegeTerra.Service.InpeService;
+import br.com.protegeTerra.Service.MapsService;
 
 import java.util.Scanner;
 
@@ -19,18 +23,25 @@ public class App {
         ClienteService clienteService = new ClienteService();
         DesastreService desastreService = new DesastreService();
 
+        ClimaService climaService = new ClimaService();
+        NasaService nasaService = new NasaService();
+        InpeService inpeService = new InpeService();
+        MapsService mapsService = new MapsService();
+
         Cliente clienteLogado = null;
 
         int opcao = 0;
 
-        while (opcao != 5) {
+        while (opcao != 7) {
 
-            System.out.println("\n================== PROTEGE TERRA ==================");
+            System.out.println("\n================== SIPRD ==================");
             System.out.println("1 - Reportar Desastre");
             System.out.println("2 - Antecipar Desastres");
             System.out.println("3 - Dicas");
             System.out.println("4 - Números de Emergência");
-            System.out.println("5 - Sair");
+            System.out.println("5 - Logout");
+            System.out.println("6 - Listar Desastres");
+            System.out.println("7 - Sair");
             System.out.print("Escolha uma opção: ");
 
             opcao = sc.nextInt();
@@ -42,43 +53,56 @@ public class App {
 
                     if (clienteLogado == null) {
 
-                            System.out.println("\n⚠ Você precisa estar cadastrado para reportar um desastre.");
+                        System.out.println("\n⚠ Você precisa estar cadastrado para reportar um desastre.");
 
-                            System.out.println("1 - Fazer Cadastro");
-                            System.out.println("2 - Fazer Login");
-                            System.out.println("3 - Voltar");
+                        System.out.println("1 - Fazer Cadastro");
+                        System.out.println("2 - Fazer Login");
+                        System.out.println("3 - Voltar");
 
-                            int opcaoCadastro = sc.nextInt();
-                            sc.nextLine();
+                        int opcaoCadastro = sc.nextInt();
+                        sc.nextLine();
 
-                            if (opcaoCadastro == 1) {
+                        if (opcaoCadastro == 1) {
 
-                                clienteLogado = clienteService.cadastrarCliente(sc);
+                            clienteLogado = clienteService.cadastrarCliente(sc);
+
+                            if (clienteLogado != null) {
 
                                 System.out.println("\nCadastro realizado com sucesso!");
                                 System.out.println("Bem-vindo, " + clienteLogado.getNome());
 
-                            } else if (opcaoCadastro == 2) {
-
-                                System.out.print("CPF: ");
-                                String cpf = sc.nextLine();
-
-                                System.out.print("Senha: ");
-                                String senha = sc.nextLine();
-
-                                clienteLogado = clienteService.login(cpf, senha);
-
-                                if (clienteLogado != null) {
-                                    System.out.println("Login realizado com sucesso!");
-                                } else {
-                                    System.out.println("CPF ou senha inválidos.");
-                                    break;
-                                }
-
                             } else {
+
+                                System.out.println("Não foi possível realizar o cadastro.");
                                 break;
                             }
+
+                        } else if (opcaoCadastro == 2) {
+
+                            System.out.print("CPF: ");
+                            String cpf = sc.nextLine();
+
+                            System.out.print("Senha: ");
+                            String senha = sc.nextLine();
+
+                            clienteLogado = clienteService.login(cpf, senha);
+
+                            if (clienteLogado != null) {
+
+                                System.out.println("Login realizado com sucesso!");
+                                System.out.println("Bem-vindo, " + clienteLogado.getNome());
+
+                            } else {
+
+                                System.out.println("CPF ou senha inválidos.");
+                                break;
+                            }
+
+                        } else {
+
+                            break;
                         }
+                    }
 
                     Desastre desastre = desastreService.cadastrarDesastre(sc);
 
@@ -88,7 +112,14 @@ public class App {
 
                 case 2:
 
-                    System.out.println("\nSistema de antecipação de desastres em desenvolvimento.");
+                    System.out.println("\n=== ANTECIPAÇÃO DE DESASTRES ===");
+
+                    climaService.verificarClima();
+
+                    nasaService.consultarEventos();
+
+                    inpeService.verificarQueimadas();
+
                     break;
 
                 case 3:
@@ -103,7 +134,28 @@ public class App {
 
                 case 5:
 
-                    System.out.println("\nObrigado por utilizar o Protege Terra!");
+                    if (clienteLogado != null) {
+
+                        clienteLogado = null;
+
+                        System.out.println("\nLogout realizado com sucesso!");
+
+                    } else {
+
+                        System.out.println("\nNenhum usuário está logado.");
+                    }
+
+                    break;
+
+                case 6:
+
+                    desastreService.listarDesastres();
+
+                    break;
+
+                case 7:
+
+                    System.out.println("\nObrigado por utilizar o SIPRD!");
                     break;
 
                 default:
