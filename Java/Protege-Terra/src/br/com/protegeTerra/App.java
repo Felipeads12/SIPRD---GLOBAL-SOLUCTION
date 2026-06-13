@@ -155,7 +155,7 @@ public class App {
 
                 case 7:
 
-                    System.out.println("\nObrigado por utilizar o SIPRD!");
+                    System.out.println("\nObrigado por utilizar a SIPRD!");
                     break;
 
                 default:
